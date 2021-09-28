@@ -78,7 +78,7 @@ void print_res(int i,int print_1,int print_2, char *str,t_score *score)
 		Color(RESET_ALL);
 		printf("|");
 		printf("%13d Milisec.",print_2);
-		print_placar(i,s[1],str);
+		print_placar(i,s[0],str);
 		print_m(i + 1);
 	}
 	else{
@@ -165,7 +165,7 @@ void print_end(t_score score)
 {
 	char end[200];
 	int a;
-	FILE *file = fopen("./benchmark/end","rwa");
+	FILE *file = fopen("./files/end","rwa");
 	print_line(0);
 	print_m(0);
 	if(score.gnl1 >= score.gnl2)
