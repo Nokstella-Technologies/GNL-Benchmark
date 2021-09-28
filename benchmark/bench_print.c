@@ -156,7 +156,7 @@ void print_header(void)
 	printf("  ._|___    ___    ___    ___    ___    ___    ___    ___    ___    ___    ___|__.\n");
 	print_m(2);
 	Color(FG_LBLUE);
-	printf(" pts Milisec.    Time of GNL1         VS        Time of GNL2  Milisec. pts ");
+	printf(" pts             Time of GNL1         VS        Time of GNL2          pts  ");
 	print_m(1);
 	printf("\n");
 }
