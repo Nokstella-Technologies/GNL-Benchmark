@@ -206,5 +206,7 @@ void print_end(t_score score)
 		fgets(end, 200, file);
 		printf("%s",end);
 	}
-	printf("\nCopy Rigth @FACE_TATOO\n");
+	printf("\n");
+	printf("\n");
+	printf("\n");
 }
