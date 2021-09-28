@@ -1,6 +1,6 @@
 # Prerequisites
 *.d
-
+run_bench
 # Object files
 *.o
 *.ko

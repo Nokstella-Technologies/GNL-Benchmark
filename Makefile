@@ -6,7 +6,8 @@ NAME2 = libgnl2.a
 OBJS_GET = $(SRC_GET:.c=.o)
 PATH_BENCH = ./benchmark/
 PATH_UTILS = ./utils/
-SRC_BENCH = main.c $(PATH_BENCH)bench_time.c $(PATH_UTILS)ft_utils_function.c \
+SRC_BENCH = main.c $(PATH_BENCH)bench_time.c $(PATH_BENCH)bench_print.c \
+			$(PATH_UTILS)ft_utils_function.c \
 			$(PATH_UTILS)write_file.c $(PATH_UTILS)color.c
 
 
@@ -15,18 +16,18 @@ SRC_BENCH = main.c $(PATH_BENCH)bench_time.c $(PATH_UTILS)ft_utils_function.c \
 
 bench: $(NAME) $(NAME2) $(SRC_BENCH)
 	make reset
-	gcc -I $(GET_PATH) $(SRC_BENCH) $(NAME) -D BUFFER_SIZE=1 -D GNL=1 && ./a.out
+	gcc -I $(GET_PATH) $(SRC_BENCH) $(NAME) -D BUFFER_SIZE=1 -D GNL=0 && ./a.out
 	gcc -I $(GET_PATH) $(SRC_BENCH) $(NAME) -D BUFFER_SIZE=5 -D GNL=1 && ./a.out
-	gcc -I $(GET_PATH) $(SRC_BENCH) $(NAME) -D BUFFER_SIZE=42 -D GNL=1 && ./a.out
-	gcc -I $(GET_PATH) $(SRC_BENCH) $(NAME) -D BUFFER_SIZE=10000000 -D GNL=1 && ./a.out
-	gcc -I $(GET_PATH_2) $(SRC_BENCH) $(NAME2) -D BUFFER_SIZE=1 -D GNL=2 && ./a.out
-	gcc -I $(GET_PATH_2) $(SRC_BENCH) $(NAME2) -D BUFFER_SIZE=5 -D GNL=2 && ./a.out
-	gcc -I $(GET_PATH_2) $(SRC_BENCH) $(NAME2) -D BUFFER_SIZE=42 -D GNL=2 && ./a.out
-	gcc -I $(GET_PATH_2) $(SRC_BENCH) $(NAME2) -D BUFFER_SIZE=10000000 -D GNL=2 && ./a.out && make clean && bahs BenchShow.sh
+	gcc -I $(GET_PATH) $(SRC_BENCH) $(NAME) -D BUFFER_SIZE=42 -D GNL=2 && ./a.out
+	gcc -I $(GET_PATH) $(SRC_BENCH) $(NAME) -D BUFFER_SIZE=10000000 -D GNL=3 && ./a.out
+	gcc -I $(GET_PATH_2) $(SRC_BENCH) $(NAME2) -D BUFFER_SIZE=1 -D GNL=4 && ./a.out
+	gcc -I $(GET_PATH_2) $(SRC_BENCH) $(NAME2) -D BUFFER_SIZE=5 -D GNL=5 && ./a.out
+	gcc -I $(GET_PATH_2) $(SRC_BENCH) $(NAME2) -D BUFFER_SIZE=42 -D GNL=6 && ./a.out
+	gcc -I $(GET_PATH_2) $(SRC_BENCH) $(NAME2) -D BUFFER_SIZE=10000000 -D GNL=7 && ./a.out &&  gcc -I $(GET_PATH) $(SRC_BENCH) $(NAME) -D GNL=-1 -o run_bench && ./run_bench && make clean
 
 
 $(NAME):
-	cd $(GET_PATH) && gcc -c $(SRC_GET) && ar rcs $(NAME2) $(OBJS_GET) && rm $(OBJS_GET) && mv $(NAME) $(OIDPWD)
+	cd $(GET_PATH) && gcc -c $(SRC_GET) && ar rcs $(NAME) $(OBJS_GET) && rm $(OBJS_GET) && mv $(NAME) $(OLDPWD)
 
 $(NAME2):
 	cd $(GET_PATH_2) && gcc -c $(SRC_GET) && ar rcs $(NAME2) $(OBJS_GET) && rm $(OBJS_GET) && mv $(NAME2) $(OLDPWD)
@@ -42,5 +43,6 @@ reset:
 	cd ./outputs && rm -f *
 
 clean: 
-	rm -f $(NAME) $(NAME2) a.out
+	rm -f $(NAME) $(NAME2)
+
 .PHONY: all bench reset
