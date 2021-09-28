@@ -49,7 +49,7 @@ void print_res(int i,int print_1,int print_2, char *str,t_score *score)
 	{
 		print_m(i);
 		print_placar(i,s[1],str);
-		Color(FG_BLUE);
+		Color(FG_BLACK);
 		Color(BG_LGREEN);
 		printf("%-14d Milisec.", print_1);
 		Color(RESET_ALL);

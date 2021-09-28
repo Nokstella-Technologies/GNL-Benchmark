@@ -1,4 +1,5 @@
 # Prerequisites
+./outputs/*.output
 *.d
 run_bench
 # Object files
