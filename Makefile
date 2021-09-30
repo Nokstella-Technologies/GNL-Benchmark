@@ -1,4 +1,4 @@
-GNL1_PATH = ./GNLinked
+GNL1_PATH = ./GNL
 GNL2_PATH = ../GNL				#put here the path for our GNL
 SRC_GET = get_next_line.c get_next_line_utils.c
 NAME = libgnl.a
